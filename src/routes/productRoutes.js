@@ -1,7 +1,11 @@
 const express = require('express');
 const ProductController = require('../controllers/ProductController');
+const authMiddleware = require('../middleware/authMiddleware');
 
 const router = express.Router();
+
+// Protección: todas las rutas requieren token válido
+router.use(authMiddleware);
 
 /**
  * Rutas de Productos

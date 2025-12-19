@@ -3,6 +3,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 const productRoutes = require('./routes/productRoutes');
+const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -36,6 +37,7 @@ app.get('/', (req, res) => {
 
 // Rutas de API
 app.use('/api/productos', productRoutes);
+app.use('/api/auth', authRoutes);
 
 /**
  * Manejo de rutas no encontradas

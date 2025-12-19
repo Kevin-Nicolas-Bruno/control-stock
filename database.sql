@@ -19,3 +19,11 @@ INSERT INTO productos (nombre, precio, cantidad) VALUES
 ('coca cola', 10.50, 15),
 ('pepsi', 8.99, 30)
 ON DUPLICATE KEY UPDATE cantidad = VALUES(cantidad);
+
+-- Tabla de usuarios (para autenticación)
+CREATE TABLE IF NOT EXISTS users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(100) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
